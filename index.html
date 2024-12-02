@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>BREAKING NEWS</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <p><span><b>BREAKING NEWS</b></span></p>
+        <h1>NYHED KOMMER SNART</h1>
+        <button><span>RING TIL LILLEBROR OM...</span></button>
+
+        <div class="launch-time">
+            <div>
+                <p id="days">00</p>
+                <span>days</span>
+            </div> <div>
+                <p id="hours">00</p>
+                <span>hours</span>
+            </div> <div>
+                <p id="minutes">00</p>
+                <span>minutes</span>
+            </div> <div>
+                <p id="seconds">00</p>
+                <span>seconds</span>
+            </div>
+        </div>
+    </div>
+    <img src="billeder/hjertet.png" class="hjertet">
+      
+</div>
+
+<script>
+    var countDownDate = new Date("Dec 4, 2024 18:30:00").getTime();
+    var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = countDownDate - now
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if(distance < 0){
+            clearInterval(x);
+            document.getElementById("days").innerHTML = "00"
+            document.getElementById("hours").innerHTML = "00"
+            document.getElementById("minutes").innerHTML = "00"
+            document.getElementById("seconds").innerHTML = "00"
+        }
+
+
+    },1000);
+
+
+</script>
+
+</body>
+</html>
